@@ -39,3 +39,28 @@ FalconForCausalLM(
   (lm_head): Linear(in_features=4544, out_features=65024, bias=False)
 )
 ```
+
+## Data Utilities
+
+### Apify Dataset API
+
+This repository includes utilities for working with Apify datasets, which can be useful for managing training data or evaluation datasets for the Falcon models.
+
+**Features:**
+- Fetch data from Apify dataset APIs
+- Add items to target Apify datasets
+- Simple transfer utility for moving data between datasets
+
+**Usage:**
+```python
+from apify_utils import fetch_apify_data, add_items_to_dataset
+
+# Fetch data from a source dataset
+items = fetch_apify_data("https://api.apify.com/v2/datasets/YOUR_SOURCE_ID/items?format=json&clean=true")
+
+# Add items to a target dataset
+result = add_items_to_dataset("target_dataset_id", items, "your_api_token")
+```
+
+**Example:**
+See `example_apify_usage.py` for a complete example of transferring data between Apify datasets.
