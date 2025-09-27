@@ -19,7 +19,7 @@ def run(cmd, cwd=None):
 
 def download_kaggle_dataset(dataset, out_dir):
     run(f"kaggle datasets download -d {dataset} -p {out_dir}")
-    # Unzip all zip files
+    # Unzip all zip files in the output directory
     for fname in os.listdir(out_dir):
         if fname.endswith(".zip"):
             run(f"unzip -o {fname}", cwd=out_dir)
